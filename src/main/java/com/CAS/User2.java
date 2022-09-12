@@ -4,8 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.AbstractCollection;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 @Data
 @AllArgsConstructor
@@ -39,5 +44,32 @@ public class User2 {
         User3 u4=new User3(14,"d",15);
         User3 u5=new User3(15,"e",16);
         List<User3> list= Arrays.asList(u1,u2,u3,u4,u5);
+
+        //Function函数型接口,有一个输入参数，有一个输出返回
+        Function<String,Integer> function=s -> {return s.length();};
+        System.out.println(function.apply("abs"));
+        //Predicate,断定行接口，返回值为Boolean类型
+        Predicate<String> predicate=s -> {return s.isEmpty();};
+        System.out.println(predicate.test("张三"));
+        //Consumer消费性接口返回类型void
+        Consumer<String>consumer=s -> {
+            System.out.println(s);
+        };
+        consumer.accept("爱咋咋地");
+        //Supplier供给型接口,需要返回一个任意类型的数据
+        Supplier<String>stringSupplier=()->{return "java0526";};
+        System.out.println(stringSupplier.get());
+
+        /*Predicate<String> predicate=new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                return false;
+            }
+        };*/
     }
+}
+interface MyInterface{
+    public int myInt(int x);
+    public String myString(String str);
+    public Boolean isOK(String str);
 }
