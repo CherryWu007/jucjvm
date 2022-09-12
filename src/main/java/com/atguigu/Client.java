@@ -2,6 +2,7 @@ package com.atguigu;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,7 +14,7 @@ import java.util.Set;
  * @ClassName : Client.java
  * @createTime : 2022/9/7 19:58
  * @Email :851185679@qq.com
- * @Description :
+ * @Description :hash冲突
  */
 
 public class Client
@@ -32,6 +33,7 @@ public class Client
 
 
         }
+
         System.out.println(set.size());
     }
 }

@@ -30,16 +30,15 @@ interface Foo
  *
  * 1    拷贝小括号，写死右箭头，落地大括号
  * 2    @FunctionalInterface显示的定义一个函数式接口，假如不写，只有一个方法隐式的定义为函数式接口
- * 3
+ * 3    default:显示定义加实现，default方法可以有多个
  */
 
 public class LambdaDemo
 {
     public static void main(String[] args) {
-        Foo foo=(x,y)->{
-            System.out.println("-----------come in");
-            return x+ y;
-        };
+        Foo foo=(x,y)->{System.out.println("-----------come in");return x+ y;};
         System.out.println(foo.add(2,3));
+
+        Foo foo1=(x,y)->{System.out.println("=============come out");return x-y;};
     }
 }
